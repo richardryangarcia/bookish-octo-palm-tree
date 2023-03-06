@@ -5,6 +5,8 @@ import { mainnet } from "viem/chains";
 const app = express();
 const port = 3001;
 
+const client = createPublicClient({ chain: mainnet, transport: http() });
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -15,6 +17,8 @@ app.listen(port, () => {
 
 const main = async () => {
   console.log("main started");
+  const blockNumber = await client.getBlockNumber();
+  console.log(blockNumber);
 };
 
 main();

@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "express": "4.17.1",
-    "viem": "^0.1.0"
+    "viem": "^0.1.1"
   }
 }
