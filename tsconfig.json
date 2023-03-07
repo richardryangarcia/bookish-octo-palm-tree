@@ -4,6 +4,8 @@
     "esModuleInterop": true,
     "target": "es6",
     "moduleResolution": "node",
+    "preserveSymlinks": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "outDir": "dist"
   },

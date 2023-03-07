@@ -5,7 +5,9 @@ import { mainnet } from "viem/chains";
 const app = express();
 const port = 3001;
 
-const client = createPublicClient({ chain: mainnet, transport: http() });
+const transport = http();
+
+const client = createPublicClient({ chain: mainnet, transport });
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

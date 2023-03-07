@@ -17,7 +17,9 @@ const viem_1 = require("viem");
 const chains_1 = require("viem/chains");
 const app = (0, express_1.default)();
 const port = 3001;
-const client = (0, viem_1.createPublicClient)({ chain: chains_1.mainnet, transport: (0, viem_1.http)() });
+const transport = (0, viem_1.http)();
+// "https://eth-mainnet.g.alchemy.com/v2/tmFA488vlFz0gakXsb14Zj_54Uayc41s"
+const client = (0, viem_1.createPublicClient)({ chain: chains_1.mainnet, transport });
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
