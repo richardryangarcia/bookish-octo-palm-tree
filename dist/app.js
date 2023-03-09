@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -15,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const viem_1 = require("viem");
 const chains_1 = require("viem/chains");
+const moduleManager_1 = require("./abis/moduleManager");
 const app = (0, express_1.default)();
 const port = 3001;
 const transport = (0, viem_1.http)();
-// "https://eth-mainnet.g.alchemy.com/v2/tmFA488vlFz0gakXsb14Zj_54Uayc41s"
 const client = (0, viem_1.createPublicClient)({ chain: chains_1.mainnet, transport });
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -26,10 +17,24 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
+const main = async () => {
     console.log("main started");
-    const blockNumber = yield client.getBlockNumber();
+    const blockNumber = await client.getBlockNumber();
     console.log(blockNumber);
-});
+    // const unwatch = await client.watchContractEvent({
+    //   address: "0x850A7c6fE2CF48eea1393554C8A3bA23f20CC401",
+    //   abi: moduleManagerABI,
+    //   eventName: "ModuleApprovalSet",
+    //   onLogs: logs => console.log(logs),
+    // });
+    const filter = await client.createContractEventFilter({
+        address: "0x850A7c6fE2CF48eea1393554C8A3bA23f20CC401",
+        abi: moduleManager_1.moduleManagerABI,
+        eventName: "ModuleApprovalSet",
+        fromBlock: 0n,
+        toBlock: blockNumber,
+    });
+    console.log(filter);
+};
 main();
 //# sourceMappingURL=app.js.map

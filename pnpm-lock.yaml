@@ -3,12 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   '@types/express': 4.17.1
   express: 4.17.1
+  node-fetch: ^3.3.0
   typescript: ^4.9.5
   viem: ^0.1.2
 
 dependencies:
   express: 4.17.1
-  viem: 0.1.3_typescript@4.9.5
+  node-fetch: 3.3.0
+  viem: 0.1.7_typescript@4.9.5
 
 devDependencies:
   '@types/express': 4.17.1
@@ -72,8 +74,8 @@ packages:
       '@types/node': 18.14.6
     dev: true
 
-  /@wagmi/chains/0.2.10_typescript@4.9.5:
-    resolution: {integrity: sha512-MoMyQaR5cb1CmhuRu2C9Xyoddas8AZU7RwVQHIX7IHAL2LKbURjMnt0YQu2vr575yCO4llwVMmt2OyGFnq6P9w==}
+  /@wagmi/chains/0.2.11_typescript@4.9.5:
+    resolution: {integrity: sha512-aMrI1zKKXdeAaiTxBiv+3Zfgd3IajCDpxBtPPvpjXuWVRe4ikwzbyZ1HARKj3V1+wNMPng8EJiWpN966PcvROg==}
     peerDependencies:
       typescript: '>=4.9.4'
     peerDependenciesMeta:
@@ -83,8 +85,8 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /abitype/0.6.7_typescript@4.9.5:
-    resolution: {integrity: sha512-PFiyVoR09ZYqOG8/LJg9T1CTsYzfBRcyp5sNQYq7PRZ4oZ+c3yp22GFIeP99pTrMEQxuoA3pq4f0kEjWyVqOSQ==}
+  /abitype/0.6.8_typescript@4.9.5:
+    resolution: {integrity: sha512-eEBArafvVXdPoCNcdG7FYX3U5lhAXAH3QE8dj7RncsNm4N5Rv5PpWctUNDVu/oxjsuQOTLcjOxIdOwhcbkKk0Q==}
     peerDependencies:
       typescript: '>=4.9.4'
       zod: '>=3.19.1'
@@ -149,6 +151,11 @@ packages:
   /cookie/0.4.0:
     resolution: {integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /data-uri-to-buffer/4.0.1:
+    resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
+    engines: {node: '>= 12'}
     dev: false
 
   /debug/2.6.9:
@@ -227,6 +234,14 @@ packages:
       - supports-color
     dev: false
 
+  /fetch-blob/3.2.0:
+    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
+    engines: {node: ^12.20 || >= 14.13}
+    dependencies:
+      node-domexception: 1.0.0
+      web-streams-polyfill: 3.2.1
+    dev: false
+
   /finalhandler/1.1.2:
     resolution: {integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==}
     engines: {node: '>= 0.8'}
@@ -240,6 +255,13 @@ packages:
       unpipe: 1.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /formdata-polyfill/4.0.10:
+    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
+    engines: {node: '>=12.20.0'}
+    dependencies:
+      fetch-blob: 3.2.0
     dev: false
 
   /forwarded/0.2.0:
@@ -352,6 +374,20 @@ packages:
   /negotiator/0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /node-domexception/1.0.0:
+    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
+    engines: {node: '>=10.5.0'}
+    dev: false
+
+  /node-fetch/3.3.0:
+    resolution: {integrity: sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      data-uri-to-buffer: 4.0.1
+      fetch-blob: 3.2.0
+      formdata-polyfill: 4.0.10
     dev: false
 
   /on-finished/2.3.0:
@@ -486,12 +522,12 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /viem/0.1.3_typescript@4.9.5:
-    resolution: {integrity: sha512-prRHmhknWrdy9M8S82m39vhZ4q+HpphVqwAPODv5f/XO4eXN55Kza1qFYec68VyRgt10V0VHYBlqkdD58ePHLw==}
+  /viem/0.1.7_typescript@4.9.5:
+    resolution: {integrity: sha512-QklDeYwVyAug3pSrR7YzRgt07kP4tft3jsFiG/+6sQ4ntdIdCKVQ1y7ooXgYQX3PwBIvrIb+rIVMZXnMPJHRTA==}
     dependencies:
       '@noble/hashes': 1.2.0
-      '@wagmi/chains': 0.2.10_typescript@4.9.5
-      abitype: 0.6.7_typescript@4.9.5
+      '@wagmi/chains': 0.2.11_typescript@4.9.5
+      abitype: 0.6.8_typescript@4.9.5
       idna-uts46-hx: 4.1.2
       isomorphic-ws: 5.0.0_ws@8.12.1
       ws: 8.12.1
@@ -500,6 +536,11 @@ packages:
       - typescript
       - utf-8-validate
       - zod
+    dev: false
+
+  /web-streams-polyfill/3.2.1:
+    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
+    engines: {node: '>= 8'}
     dev: false
 
   /ws/8.12.1:

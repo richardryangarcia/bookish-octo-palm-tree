@@ -2,12 +2,12 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "es2020",
     "moduleResolution": "node",
     "preserveSymlinks": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "outDir": "dist"
   },
-  "lib": ["es2015"]
+  "lib": ["es2020"]
 }
